@@ -1,0 +1,21 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "description": "Example uses for playwright",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justintbarry/playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justintbarry/playwright/issues"
+  },
+  "homepage": "https://github.com/justintbarry/playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.31.2"
+  }
+}

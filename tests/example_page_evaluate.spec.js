@@ -1,10 +1,3 @@
-# Playwright
-Example uses for Playwright
-
-## Highlights
-
-[tests/example_page_evaluate.spec.js](tests/example_page_evaluate.spec.js)
-```
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
@@ -20,4 +13,3 @@ test('scrape HTML from dropdown menu', async ({ page }) => {
   // Print the variable to the console
   console.log(dropdown_menu_html);
 });
-```
