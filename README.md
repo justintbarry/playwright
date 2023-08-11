@@ -31,22 +31,20 @@ test('scrape HTML from dropdown menu', async ({ page }) => {
 const { test, expect } = require('@playwright/test');
 
 test('authenticate', async ({ page }) => {
-  await page.goto('https://syful.com/ghost/#/signin');
-  await expect(page).toHaveTitle(/Sign In - Syful/);
+  await page.goto('https://syful.com/ghost/#/signin'); // Navigates to authentication portal
+  await expect(page).toHaveTitle(/Sign In - Syful/); // Checks that the expected web page was loaded
   if (!process.env.EMAIL) {
-    console.error("Expected script to be executed with EMAIL parameter assigned to a string.");
+    throw new ReferenceError('EMAIL parameter is missing. Ensure program is executed with EMAIL and PASSWORD parameters assigned to valid string data.');
   } else {
-    const email = process.env.EMAIL;
-    await page.getByLabel('Email address').fill(email);
+    await page.getByLabel('Email address').fill(process.env.EMAIL); // Fills the Email address input field with the EMAIL parameter
   }
   if (!process.env.PASSWORD) {
-    console.error("Expected script to be executed with PASSWORD parameter assigned to a string.");
+    throw new ReferenceError('PASSWORD parameter is missing. Ensure program is executed with EMAIL and PASSWORD parameters assigned to valid string data.');
   } else {
-    const password = process.env.PASSWORD;
-    await page.getByLabel('Password').fill(password);
+    await page.getByLabel('Password').fill(process.env.PASSWORD); // Fills the Password input field with the PASSWORD parameter
   }
-  await page.getByRole('button', { name: 'Sign in →' }).click();
-  await expect(page).toHaveTitle(/Posts - Syful/);
+  await page.getByRole('button', { name: 'Sign in →' }).click(); // Selects the Sign in Call to Action button
+  await expect(page).toHaveTitle(/Posts - Syful/); // Checks the title of the page to ensure the user is successfully signed in
 });
 ```
 
@@ -62,5 +60,4 @@ This test must be run with EMAIL and PASSWORD parameters initialized to strings.
 
 This whole command can also be run in one line: `echo -n "Enter Email Address: " && read my_email && echo && echo -n "Enter Password: " && read -s my_password && echo && EMAIL=$my_email PASSWORD=$my_password npx playwright test tests/authenticate.spec.js`
 
-For additional ways to pass credentials to Playwright tests, see the official documentation: [Parameterize tests
-](https://playwright.dev/docs/test-parameterize).
+For additional ways to pass credentials to Playwright tests, see the official documentation: [Parameterize tests](https://playwright.dev/docs/test-parameterize).
