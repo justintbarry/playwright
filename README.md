@@ -3,8 +3,10 @@ Example uses for Playwright
 
 ## Highlights
 
+### Run a function in the context of a web page
+
 [tests/example_page_evaluate.spec.js](tests/example_page_evaluate.spec.js)
-```
+```js
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
